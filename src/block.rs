@@ -108,53 +108,47 @@ where
         payload::Config::Syslog5424 => construct_block_cache_inner(
             &mut rng,
             &payload::Syslog5424::default(),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
-        payload::Config::Fluent => construct_block_cache_inner(
-            &mut rng,
-            &payload::Fluent::default(),
-            &block_chunks,
-            &labels,
-        ),
+        payload::Config::Fluent => {
+            construct_block_cache_inner(&mut rng, &payload::Fluent::default(), block_chunks, labels)
+        }
         payload::Config::SplunkHec { encoding } => construct_block_cache_inner(
             &mut rng,
             &payload::SplunkHec::new(*encoding),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
         payload::Config::ApacheCommon => construct_block_cache_inner(
             &mut rng,
             &payload::ApacheCommon::default(),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
-        payload::Config::Ascii => construct_block_cache_inner(
-            &mut rng,
-            &payload::Ascii::default(),
-            &block_chunks,
-            &labels,
-        ),
+        payload::Config::Ascii => {
+            construct_block_cache_inner(&mut rng, &payload::Ascii::default(), block_chunks, labels)
+        }
         payload::Config::DatadogLog => construct_block_cache_inner(
             &mut rng,
             &payload::DatadogLog::default(),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
         payload::Config::Json => {
-            construct_block_cache_inner(&mut rng, &payload::Json::default(), &block_chunks, &labels)
+            construct_block_cache_inner(&mut rng, &payload::Json::default(), block_chunks, labels)
         }
         payload::Config::FoundationDb => construct_block_cache_inner(
             &mut rng,
             &payload::FoundationDb::default(),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
         payload::Config::Static { ref static_path } => construct_block_cache_inner(
             &mut rng,
             &payload::Static::new(static_path),
-            &block_chunks,
-            &labels,
+            block_chunks,
+            labels,
         ),
     }
 }

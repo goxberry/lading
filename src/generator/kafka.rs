@@ -273,7 +273,7 @@ fn generate_block_cache(
         .expect("bytes must be non-zero");
     let chunks = chunk_bytes(&mut rng, total_size, block_sizes)?;
 
-    let blocks = construct_block_cache(&mut rng, &variant, &chunks, &labels);
+    let blocks = construct_block_cache(&mut rng, variant, &chunks, labels);
     Ok(blocks)
 }
 
