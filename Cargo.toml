@@ -47,6 +47,7 @@ procfs = { version = "0.12", default-features = false, features = [] }
 
 [dev-dependencies]
 proptest = "1.0"
+proptest-derive = "0.2.0"
 
 [[bin]]
 name = "lading"
